@@ -1,0 +1,40 @@
+<snippet>
+	<content><![CDATA[
+{
+	name: 'post.show',
+	path: '/post/:_id',
+	controller: 'CustomController',
+	template: 'Post',
+	layoutTemplate: 'ApplicationLayout',
+	yieldRegions: {
+		'MyAside': {to: 'aside'},
+		'MyFooter': {to: 'footer'}
+	},
+	subscriptions: function() {
+		this.subscribe('items');
+
+		// add the subscription to the waitlist
+		this.subscribe('item', this.params._id).wait();
+	},
+	waitOn: function () {
+		return Meteor.subscribe('post', this.params._id);
+	},
+	data: function () {
+		return Posts.findOne({_id: this.params._id});
+	},
+	onRun: function () {},
+	onRerun: function () {},
+	onBeforeAction: function () {},
+	onAfterAction: function () {},
+	onStop: function () {},
+	action: function () {
+		// render all templates and regions for this route
+		this.render();
+	}
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>ironops</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.js</scope>
+</snippet>

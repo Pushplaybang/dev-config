@@ -1,0 +1,13 @@
+<snippet>
+	<content><![CDATA[
+/**
+ * @summary ${1:describe}
+ * @locus ${2:Anywhere}
+ * @instancename ${3:instance}
+ * @class ${4:class}
+ * @param {String}
+ */
+]]></content>
+	<tabTrigger>jsdoc</tabTrigger>
+	<!-- <scope>source.javascript</scope> -->
+</snippet>
