@@ -1,8 +1,8 @@
 {
 	"bold_folder_labels": true,
-	"caret_extra_bottom": 2,
-	"caret_extra_top": 2,
-	"caret_extra_width": 5,
+	"caret_extra_bottom": 0,
+	"caret_extra_top": 0,
+	"caret_extra_width": 7,
 	"caret_style": "phase",
 	"color_scheme": "Packages/Theme - Curiosity/curiosity.base16.tmTheme",
 	"detect_indentation": true,
@@ -12,6 +12,7 @@
 	"font_size": 21,
 	"highlight_modified_tabs": true,
 	"sidebar_default": true,
+	"auto_complete_delay": 100,
 	"ignored_packages":
 	[
 		"Vintage",
