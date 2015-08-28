@@ -50,9 +50,9 @@ These are the general purpose apps I use daily. Your mileage may vary.
 Alfred is a handly little tool that providesd a lot of utility, similar to spotlight, but far more awesome, you can launch apps, find files, trigger a google search, do quick calculation simply by hitting `alt+space` further reducing the need for mousing around OSX.
 
 ### xcode
-xcode is the Apple development environment, and can be installed through the app store.  It includes a number of useful utilities and general purpose tools.
+xcode is the Apple development environment, and can be installed through the app store.  It includes a number of useful utilities and general purpose tools such as git.
 
-
+check out [xCode here](https://developer.apple.com/xcode/)
 
 ### Sublime Text
 Sublime Text is a sophisticated text editor that can be installed here [sublime text 3 here](http://www.sublimetext.com/3)
@@ -224,6 +224,14 @@ Great set of GIT utilities -- repo summary, repl, changelog population, author c
 [git-extras](https://github.com/tj/git-extras)
 
 ### Sublime Text Dependancies
+The linter packages in particular will require these dependancies in order to work.
+
+````bash
+    // eslint
+        npm install -g eslint
+    // jshint
+        
+````
 
 
 

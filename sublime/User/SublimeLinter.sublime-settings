@@ -19,17 +19,17 @@
                     "README"
                 ]
             },
+            "eslint": {
+                "@disable": false,
+                "args": [],
+                "excludes": []
+            },
             "jscs": {
                 "@disable": false,
                 "args": [],
                 "excludes": []
             },
             "jshint": {
-                "@disable": false,
-                "args": [],
-                "excludes": []
-            },
-            "jslint": {
                 "@disable": false,
                 "args": [],
                 "excludes": []
