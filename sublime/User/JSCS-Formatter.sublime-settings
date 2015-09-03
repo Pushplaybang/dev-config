@@ -20,5 +20,5 @@
   "config_path": "/Users/paul/repositories/dev-config/jscs.json",
 
   // Automatically format when a file is saved.
-  "format_on_save": true
+  "format_on_save": false
 }

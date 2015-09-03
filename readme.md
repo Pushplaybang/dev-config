@@ -15,6 +15,7 @@ A selection of install and setup notes for my dev config on OSX, this is somewha
     - Tower 2
 - Command Line
     - Brew
+    - Git
     - YADR
     - Cheat
     - Node & NPM
@@ -26,10 +27,13 @@ A selection of install and setup notes for my dev config on OSX, this is somewha
     - Meteor
     - Laravel  & Lumen
 - Environment
+    - MySQL
+    - MongoDB
     - Docker ToolBox
     - VirtualBox
     - Vagrant
     - Homestead
+- SSH keys
 
 <!-- /MarkdownTOC -->
 
@@ -105,6 +109,7 @@ After installing iterm above, a number of these tools are neccessary for a) a be
 
 * Yadr
 * brew
+* git
 * cheat
 * node & npm
 * grunt, gulp  and bower cli's
@@ -121,7 +126,22 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 [homebrew](http://brew.sh/)
 
+### Git
 
+````bash
+    brew install git
+````
+You will also want to setup your Git and GitHub user details
+
+````bash
+    //- Setting user name and email globally in git
+    git config --global user.name "Your Name Here"
+    git config --global user.email "you@youremail.com"
+    
+    //-  GitHub token config
+    git config --global github.user YOURUSERNAME
+    git config --global github.token 0123456789abcdef0123456789abcdef
+````
 
 ### YADR
  follow the instructions here to install the the toys for terminal : 
@@ -133,7 +153,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 [YADR](https://github.com/skwp/dotfiles)
 
 #### custom VIM plugins
-TODo
+TODO
 
 ### Cheat
 cheat allows you to create and view interactive cheatsheets on the command-line. It was designed to help remind *nix system administrators of options for commands that they use frequently, but not frequently enough to remember.
@@ -241,6 +261,8 @@ These are the frameworks we use that require some pre existing setup, note that 
 * Meteor
 * laravel & Lumen
 
+
+
 ### Meteor
 Meteor is a complete open source isomorphic reactive platform for building web and mobile apps in pure JavaScript.
 
@@ -279,12 +301,66 @@ Read the laravel docs [here](http://lumen.laravel.com/docs/installation)
 ## Environment
 Our latest approach to a development environment is to focus on virtualization either via docker or vagrant.
 
+* MySQL
+* MongoDB
 * Docker Toolbox
 * virtualbox (should be installed with docker Toolbox)
 * vagrant
 * Homestead
 
 
+### MySQL
+
+Next we need to install MySQL. Yes, it's really this easy ... but this will take a while.
+
+    brew install mysql
+
+Now to warm it up:
+
+    mysql_install_db
+
+After you run `mysql_install_db` you'll see output like this ...
+
+    Installing MySQL system tables...
+    OK
+    Filling help tables...
+    OK
+
+    To start mysqld at boot time you have to copy
+    support-files/mysql.server to the right place for your system
+
+    PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !
+    To do so, start the server, then issue the following commands:
+
+    ./bin/mysqladmin -u root password 'new-password'
+    ./bin/mysqladmin -u root -h AS-MBP15.local password 'new-password'
+
+    Alternatively you can run:
+    ./bin/mysql_secure_installation
+
+    which will also give you the option of removing the test
+    databases and anonymous user created by default.  This is
+    strongly recommended for production servers.
+
+    See the manual for more instructions.
+
+    You can start the MySQL daemon with:
+    cd . ; ./bin/mysqld_safe &
+
+    You can test the MySQL daemon with mysql-test-run.pl
+    cd ./mysql-test ; perl mysql-test-run.pl
+
+    Please report any problems with the ./bin/mysqlbug script!
+
+When that's done, make sure MySQL automatically starts on login:
+
+    launchctl load -w /usr/local/Cellar/mysql/VERSION/com.mysql.mysqld.plist
+
+### MongoDB
+
+````bash
+    brew install mongodb
+````
 
 ### Docker ToolBox
 Docker Toolbox installs all of the docker tools, including machine(to run docker locally), compose, kitematic (a GUI),  and VirtualBox to make working wtih docker locally much easier.
@@ -309,3 +385,16 @@ Download and install vagrant [here.](https://www.vagrantup.com/)
 Homestead is a vagrant box designed for general purpose development with laravel, but provides a solid environment for wordpress or other php development as well.
 
 
+
+## SSH keys
+
+Generating SSH keys (OSX)
+
+First check to see if a ssh key directory exists.
+
+    cd ~/.ssh
+    ls -lash
+
+If nothing is listed, then you can move on - or else you'll need to backup the existing key and create a new as needed.
+
+    ssh-keygen -t rsa -C "adam@stacoviak.com"
