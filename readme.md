@@ -15,6 +15,7 @@ A selection of install and setup notes for my dev config on OSX, this is somewha
     - Tower 2
 - Command Line
     - Brew
+    - Brew Cask
     - Git
     - YADR
     - Cheat
@@ -109,6 +110,7 @@ After installing iterm above, a number of these tools are neccessary for a) a be
 
 * Yadr
 * brew
+* brew cask
 * git
 * cheat
 * node & npm
@@ -126,7 +128,24 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 [homebrew](http://brew.sh/)
 
+
+
+### Brew Cask
+Homebrew Cask extends Homebrew and brings its elegance, simplicity, and speed to OS X applications and large binaries alike.
+
+```bash
+brew install caskroom/cask/brew-cask    
+```
+
+```bash
+brew cask alfred link
+```
+
+
+
+
 ### Git
+Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
 
 ````bash
     brew install git
@@ -152,8 +171,7 @@ You will also want to setup your Git and GitHub user details
 
 [YADR](https://github.com/skwp/dotfiles)
 
-#### custom VIM plugins
-TODO
+
 
 ### Cheat
 cheat allows you to create and view interactive cheatsheets on the command-line. It was designed to help remind *nix system administrators of options for commands that they use frequently, but not frequently enough to remember.
@@ -189,6 +207,7 @@ to upgrade to a new version first run `brew update` and then run `brew upgrade n
 [Node.js](https://nodejs.org/)
 
 
+
 ### Grunt, Bower & Gulp CLI's
 Grunt and Gulp are javascript task runners, bower is a tiny front end dependancy managment tool based on git.
 
@@ -213,6 +232,7 @@ npm install -g bower
 [grunt js](http://gruntjs.com/)
 [gulp js](http://gulpjs.com/)
 [bower](http://bower.io/)
+
 
 
 ### Composer
@@ -311,50 +331,7 @@ Our latest approach to a development environment is to focus on virtualization e
 
 ### MySQL
 
-Next we need to install MySQL. Yes, it's really this easy ... but this will take a while.
-
-    brew install mysql
-
-Now to warm it up:
-
-    mysql_install_db
-
-After you run `mysql_install_db` you'll see output like this ...
-
-    Installing MySQL system tables...
-    OK
-    Filling help tables...
-    OK
-
-    To start mysqld at boot time you have to copy
-    support-files/mysql.server to the right place for your system
-
-    PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !
-    To do so, start the server, then issue the following commands:
-
-    ./bin/mysqladmin -u root password 'new-password'
-    ./bin/mysqladmin -u root -h AS-MBP15.local password 'new-password'
-
-    Alternatively you can run:
-    ./bin/mysql_secure_installation
-
-    which will also give you the option of removing the test
-    databases and anonymous user created by default.  This is
-    strongly recommended for production servers.
-
-    See the manual for more instructions.
-
-    You can start the MySQL daemon with:
-    cd . ; ./bin/mysqld_safe &
-
-    You can test the MySQL daemon with mysql-test-run.pl
-    cd ./mysql-test ; perl mysql-test-run.pl
-
-    Please report any problems with the ./bin/mysqlbug script!
-
-When that's done, make sure MySQL automatically starts on login:
-
-    launchctl load -w /usr/local/Cellar/mysql/VERSION/com.mysql.mysqld.plist
+*TODO*
 
 ### MongoDB
 
