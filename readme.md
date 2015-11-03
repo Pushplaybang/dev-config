@@ -12,7 +12,7 @@ A selection of install and setup notes for my dev config on OSX, this is somewha
     - iTerm2
     - RoboMongo
     - Sequel Pro
-    - Tower 2
+    - Tower 2 (commercial)
 - Command Line
     - Brew
     - Brew Cask
@@ -24,9 +24,12 @@ A selection of install and setup notes for my dev config on OSX, this is somewha
     - Composer
     - Git Extras
     - Sublime Text Dependancies
+    - Ruby
+    - Global Packages Dependancies
 - Frameworks
     - Meteor
-    - Laravel  & Lumen
+    - Laravel & Lumen
+    - Jekyll
 - Environment
     - MySQL
     - MongoDB
@@ -100,8 +103,10 @@ A small open source app for working with SQL db's, can be [downloaded here](http
 
 
 
-### Tower 2
+### Tower 2 (commercial)
 a powerful commercial app and GUI for working with Git. [available here](http://www.git-tower.com/)
+
+
 
 
 
@@ -181,6 +186,7 @@ cheat allows you to create and view interactive cheatsheets on the command-line.
 ````
 
 [cheat](https://github.com/chrisallenlane/cheat)
+
 
 
 ### Node & NPM
@@ -263,15 +269,43 @@ Great set of GIT utilities -- repo summary, repl, changelog population, author c
 
 [git-extras](https://github.com/tj/git-extras)
 
+
+
 ### Sublime Text Dependancies
 The linter packages in particular will require these dependancies in order to work.
 
 ````bash
-    // eslint
-        npm install -g eslint
-    // jshint
-        
+  // eslint
+  npm install -g eslint
+
+  // jshint
+   
 ````
+
+
+
+### Ruby
+Like many things on mac, there is a system version of this, but to avoid potentially screwing that up and continually dealing with permission issues on the system version, install it with rbenv.  (You could alternatively use RVM)
+
+```bash
+  brew install rbenv ruby-build
+  rbenv install -l
+  rbenv install 2.2.3
+```
+
+
+
+### Global Packages Dependancies
+
+#### ImageMagick and GraphicsMagick
+used for processing images.
+
+````
+brew install graphicsmagick
+brew install imagemagick --with-webp
+````
+
+
 
 
 
@@ -294,7 +328,7 @@ Read more here on the [Meteor Website](https://www.meteor.com/)
 
 
 
-### Laravel  & Lumen
+### Laravel & Lumen
 The PHP Framework For Web Artisans
 
 ````bash
@@ -318,6 +352,17 @@ Read the laravel docs [here](http://lumen.laravel.com/docs/installation)
 
 
 
+### Jekyll
+a super simple static site generator, that works with plain text and markup.
+
+```bash
+    gem install jekyll
+```
+
+
+
+
+
 ## Environment
 Our latest approach to a development environment is to focus on virtualization either via docker or vagrant.
 
@@ -329,15 +374,20 @@ Our latest approach to a development environment is to focus on virtualization e
 * Homestead
 
 
+
 ### MySQL
 
 *TODO*
+
+
 
 ### MongoDB
 
 ````bash
     brew install mongodb
 ````
+
+
 
 ### Docker ToolBox
 Docker Toolbox installs all of the docker tools, including machine(to run docker locally), compose, kitematic (a GUI),  and VirtualBox to make working wtih docker locally much easier.
@@ -372,6 +422,6 @@ First check to see if a ssh key directory exists.
     cd ~/.ssh
     ls -lash
 
-If nothing is listed, then you can move on - or else you'll need to backup the existing key and create a new as needed.
+If nothing is listed, then you can move on - or else you'll need to backup the existing key and create a new one as needed.
 
-    ssh-keygen -t rsa -C "adam@stacoviak.com"
+    ssh-keygen -t rsa -C "guy@youremail.com"
