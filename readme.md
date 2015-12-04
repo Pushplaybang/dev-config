@@ -25,7 +25,7 @@ A selection of install and setup notes for my dev config on OSX, this is somewha
     - Git Extras
     - Sublime Text Dependancies
     - Ruby
-    - Global Packages Dependancies
+    - Global Packages & Dependancies
 - Frameworks
     - Meteor
     - Laravel & Lumen
@@ -69,7 +69,7 @@ Sublime Text is a sophisticated text editor that can be installed here [sublime 
 Sublime includes a cli tool called **subl**. in order to use it we need to create a symlink in our usr/bin directory from the sublime application folder so that we can call this command anywhere while in terminal.  to do this : 
  
 ````bash
-    sudo ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/bin/subl
+    sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
 ````
 
 ##### Pre-Configured Setup
@@ -295,7 +295,7 @@ Like many things on mac, there is a system version of this, but to avoid potenti
 
 
 
-### Global Packages Dependancies
+### Global Packages & Dependancies
 
 #### ImageMagick and GraphicsMagick
 used for processing images.
@@ -326,6 +326,13 @@ Meteor is a complete open source isomorphic reactive platform for building web a
 
 Read more here on the [Meteor Website](https://www.meteor.com/)
 
+#### Developing Unpublished Meteor Packages
+To work with unpublished meteor packages locally, there are two methods.  a) you can symlink them into the `packages` folder of each project, or b) you can augment the global `$PACKAGE_DIRS` var as is discussed in this [stackoverflow question and answer](http://stackoverflow.com/questions/29289316/how-to-share-private-meteor-packages-between-multiple-projects).
+
+```bash
+   export PACKAGE_DIRS=$PACKAGE_DIRS:$HOME/meteor/packages
+```
+
 
 
 ### Laravel & Lumen
@@ -338,6 +345,8 @@ The PHP Framework For Web Artisans
 Make sure to place the ~/.composer/vendor/bin directory in your PATH so the laravel executable can be located by your system.
 
 Read the laravel docs [here](http://laravel.com/docs/5.1)
+
+
 
 ##### Lumen
 Lightning fast micro-services and APIs (based on Laravel, can be migrated to laravel)
@@ -384,7 +393,9 @@ Our latest approach to a development environment is to focus on virtualization e
 ### MongoDB
 
 ````bash
-    brew install mongodb
+    brew install mongodbsudo mkdir -p /data/db
+    sudo mkdir -p /data/db
+    sudo chown -R `whoami`: data
 ````
 
 

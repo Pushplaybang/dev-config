@@ -15,15 +15,14 @@
 	[
 		"no_round"
 	],
-	"font_size": 19,
+	"font_size": 20,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
 		"JavaScript",
 		"Markdown",
-		"Vintage",
-		"Vintageous"
+		"Vintage"
 	],
 	"indent_guide_options":
 	[

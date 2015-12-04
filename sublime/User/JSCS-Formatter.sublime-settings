@@ -17,8 +17,8 @@
   // Specify this path to a JSCS config file to override the default behavior.
   // Passed to JSCS as --config. Read more here:
   // http://jscs.info/overview.html#-config-
-  "config_path": "/Users/paul/repositories/dev-config/jscs.json",
+  // "config_path": "/Users/paul/repositories/dev-config/jscs.json",
 
   // Automatically format when a file is saved.
-  "format_on_save": false
+  "format_on_save": true
 }
