@@ -1,0 +1,6 @@
+{
+  "config": {
+    "space-before-opening-brace": "",
+    "space-between-declarations": "\n",
+  }
+}

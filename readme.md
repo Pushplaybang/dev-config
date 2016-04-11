@@ -1,6 +1,6 @@
 # My Banging OSX Dev Config
 
-A selection of install and setup notes for my dev config on OSX, this is somewhat incomplete at the moment but will eventually contain all of the bits and pieces to get going quickly.  Other than instructions this also includes my sublime text setup, and will in time be the home of any other config files such as the JSCS json file etc.
+A selection of install and setup notes for my dev config on OSX, this is somewhat incomplete at the moment but will eventually contain all of the bits and pieces to get going quickly.  Other than instructions this also includes my sublime text setup, and will in time be the home of any other config files such as linters etc json file etc.
 
 ## Table Of Contents
 <!-- MarkdownTOC depth=3 link=true-->
@@ -13,6 +13,8 @@ A selection of install and setup notes for my dev config on OSX, this is somewha
     - RoboMongo
     - Sequel Pro
     - Tower 2 (commercial)
+    - Pixate
+    - Sketch (commercial)
 - Command Line
     - Brew
     - Brew Cask
@@ -20,9 +22,11 @@ A selection of install and setup notes for my dev config on OSX, this is somewha
     - YADR
     - Cheat
     - Node & NPM
+    - n
     - Grunt, Bower & Gulp CLI's
     - Composer
     - Git Extras
+    - Local Tunnel
     - Sublime Text Dependancies
     - Ruby
     - Global Packages & Dependancies
@@ -54,13 +58,19 @@ These are the general purpose apps I use daily. Your mileage may vary.
 * Sequel Pro
 * Tower 2
 
+
+
 ### Alfred
 Alfred is a handly little tool that providesd a lot of utility, similar to spotlight, but far more awesome, you can launch apps, find files, trigger a google search, do quick calculation simply by hitting `alt+space` further reducing the need for mousing around OSX.
+
+
 
 ### xcode
 xcode is the Apple development environment, and can be installed through the app store.  It includes a number of useful utilities and general purpose tools such as git.
 
 check out [xCode here](https://developer.apple.com/xcode/)
+
+
 
 ### Sublime Text
 Sublime Text is a sophisticated text editor that can be installed here [sublime text 3 here](http://www.sublimetext.com/3)
@@ -68,16 +78,16 @@ Sublime Text is a sophisticated text editor that can be installed here [sublime 
 ##### opening files and folders from the cmd line with sublime
 Sublime includes a cli tool called **subl**. in order to use it we need to create a symlink in our usr/bin directory from the sublime application folder so that we can call this command anywhere while in terminal.  to do this : 
  
-````bash
+```sh
     sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
-````
+```
 
 ##### Pre-Configured Setup
 To use  the setup in this repo for sublime text, do the following : 
 
-````bash
+```sh
     // TODO : add ln cmd  to dev config repo
-````
+```
 
 **NB** : This setup includes JSCS which is set to auto format your JS files on save, you'll need to navigate to `preferences->Package Settings->JSCS Formatter->User - Settings` and change the path to the jscs.json file as per the location of this repository.
 
@@ -86,6 +96,7 @@ This setup specifies the **fira mono font** by mozilla whitch is included in the
 
 ##### Dependancies
 There are some small dependancies that are required for some sublime packages to function properly, these are listed under the command line setup below.
+
 
 
 ### iTerm2
@@ -107,6 +118,14 @@ A small open source app for working with SQL db's, can be [downloaded here](http
 a powerful commercial app and GUI for working with Git. [available here](http://www.git-tower.com/)
 
 
+### Pixate
+a great app for building mobile prototypes, owned by google.
+available from there [website](http://www.pixate.com/getstarted/)
+
+
+### Sketch (commercial)
+Great web design and vetor tool [available here](https://www.sketchapp.com/ )
+
 
 
 
@@ -127,9 +146,9 @@ After installing iterm above, a number of these tools are neccessary for a) a be
 ### Brew 
 Brew is the dependancy manager for OSX and should be used to install most development tools. isntall it by running the following: 
 
-````bash
+```sh
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-````
+```
 
 [homebrew](http://brew.sh/)
 
@@ -138,11 +157,11 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 ### Brew Cask
 Homebrew Cask extends Homebrew and brings its elegance, simplicity, and speed to OS X applications and large binaries alike.
 
-```bash
+```sh
 brew install caskroom/cask/brew-cask    
 ```
 
-```bash
+```sh
 brew cask alfred link
 ```
 
@@ -152,12 +171,12 @@ brew cask alfred link
 ### Git
 Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
 
-````bash
+```sh
     brew install git
-````
+```
 You will also want to setup your Git and GitHub user details
 
-````bash
+```sh
     //- Setting user name and email globally in git
     git config --global user.name "Your Name Here"
     git config --global user.email "you@youremail.com"
@@ -165,14 +184,14 @@ You will also want to setup your Git and GitHub user details
     //-  GitHub token config
     git config --global github.user YOURUSERNAME
     git config --global github.token 0123456789abcdef0123456789abcdef
-````
+```
 
 ### YADR
  follow the instructions here to install the the toys for terminal : 
 
-````bash
+```sh
     sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`"
-````
+```
 
 [YADR](https://github.com/skwp/dotfiles)
 
@@ -181,9 +200,9 @@ You will also want to setup your Git and GitHub user details
 ### Cheat
 cheat allows you to create and view interactive cheatsheets on the command-line. It was designed to help remind *nix system administrators of options for commands that they use frequently, but not frequently enough to remember.
 
-````bash
+```sh
     brew install cheat
-````
+```
 
 [cheat](https://github.com/chrisallenlane/cheat)
 
@@ -192,25 +211,34 @@ cheat allows you to create and view interactive cheatsheets on the command-line.
 ### Node & NPM
 To install node and npm via brew run : 
 
-````bash
+```sh
 brew install node
-````
+```
 
 to check that node is install run : 
 
-````bash
+```sh
 node -v
-````
+```
 
 and check that NPM is installed 
 
-````bash
+```sh
 npm -v
-````
+```
 
 to upgrade to a new version first run `brew update` and then run `brew upgrade node`.  You may want to install "n" or "nvm" to manage multiple version of node.
 
 [Node.js](https://nodejs.org/)
+
+
+### n
+The simplest version manager for node
+
+```sh
+npm install -g n
+n stable
+```
 
 
 
@@ -219,21 +247,21 @@ Grunt and Gulp are javascript task runners, bower is a tiny front end dependancy
 
 to install the grunt cli 
 
-````bash
+```sh
 npm install -g grunt-cli
-````
+```
 
 for gulp : 
 
-````bash
+```sh
 npm install --global gulp
-````
+```
 
 for bower : 
 
-````bash
+```sh
 npm install -g bower
-````
+```
 
 [grunt js](http://gruntjs.com/)
 [gulp js](http://gulpjs.com/)
@@ -246,15 +274,15 @@ Composer is a tool for dependency management in PHP. It allows you to declare th
 
 First get the composer.phar file
 
-````bash
+```sh
    curl -sS https://getcomposer.org/installer | php
-````
+```
 
 them move it to your bin directory, renaming it to just composer
 
-````bash
+```sh
     mv composer.phar /usr/local/bin/composer
-````
+```
 
 [composer](https://getcomposer.org/)
 
@@ -263,31 +291,45 @@ them move it to your bin directory, renaming it to just composer
 ### Git Extras
 Great set of GIT utilities -- repo summary, repl, changelog population, author commit percentages and more
 
-````bash
+```sh
     brew install git-extras
-````
+```
 
 [git-extras](https://github.com/tj/git-extras)
+
+
+
+### Local Tunnel
+Localtunnel allows you to easily share a web service on your local development machine without messing with DNS and firewall settings.  Localtunnel will assign you a unique publicly accessible url that will proxy all requests to your locally running webserver.
+
+```sh
+npm install -g localtunnel
+```
+
+(Local Tunnel Website)[http://localtunnel.me/]
 
 
 
 ### Sublime Text Dependancies
 The linter packages in particular will require these dependancies in order to work.
 
-````bash
+```sh
   // eslint
   npm install -g eslint
+  npm install -g babel-eslint
+  npm install -g eslint-plugin-react
+```
 
-  // jshint
-   
-````
+You'll then want to setup an `.eslintrc` file, and if you'd like to use the one defined here, you'll need to install the airbnb eslint config locally as it extends it.. 
 
-
+```sh
+npm install - g eslint-config-airbnb
+```
 
 ### Ruby
 Like many things on mac, there is a system version of this, but to avoid potentially screwing that up and continually dealing with permission issues on the system version, install it with rbenv.  (You could alternatively use RVM)
 
-```bash
+```sh
   brew install rbenv ruby-build
   rbenv install -l
   rbenv install 2.2.3
@@ -300,10 +342,10 @@ Like many things on mac, there is a system version of this, but to avoid potenti
 #### ImageMagick and GraphicsMagick
 used for processing images.
 
-````
+```sh
 brew install graphicsmagick
 brew install imagemagick --with-webp
-````
+```
 
 
 
@@ -320,17 +362,17 @@ These are the frameworks we use that require some pre existing setup, note that 
 ### Meteor
 Meteor is a complete open source isomorphic reactive platform for building web and mobile apps in pure JavaScript.
 
-````bash
+```sh
     curl https://install.meteor.com/ | sh
-````
+```
 
 Read more here on the [Meteor Website](https://www.meteor.com/)
 
 #### Developing Unpublished Meteor Packages
 To work with unpublished meteor packages locally, there are two methods.  a) you can symlink them into the `packages` folder of each project, or b) you can augment the global `$PACKAGE_DIRS` var as is discussed in this [stackoverflow question and answer](http://stackoverflow.com/questions/29289316/how-to-share-private-meteor-packages-between-multiple-projects).
 
-```bash
-   export PACKAGE_DIRS=$PACKAGE_DIRS:$HOME/meteor/packages
+```sh
+   export PACKAGE_DIRS=$PACKAGE_DIRS:$HOME/repos/meteor-packages
 ```
 
 
@@ -338,9 +380,9 @@ To work with unpublished meteor packages locally, there are two methods.  a) you
 ### Laravel & Lumen
 The PHP Framework For Web Artisans
 
-````bash
+```sh
     composer global require "laravel/installer=~1.1"
-````
+```
 
 Make sure to place the ~/.composer/vendor/bin directory in your PATH so the laravel executable can be located by your system.
 
@@ -351,9 +393,9 @@ Read the laravel docs [here](http://laravel.com/docs/5.1)
 ##### Lumen
 Lightning fast micro-services and APIs (based on Laravel, can be migrated to laravel)
 
-````bash
+```sh
     composer global require "laravel/lumen-installer=~1.0"
-````
+```
 
 Make sure to place the ~/.composer/vendor/bin directory in your PATH so the lumen executable can be located by your system. (as above)
 
@@ -364,7 +406,7 @@ Read the laravel docs [here](http://lumen.laravel.com/docs/installation)
 ### Jekyll
 a super simple static site generator, that works with plain text and markup.
 
-```bash
+```sh
     gem install jekyll
 ```
 
@@ -391,12 +433,15 @@ Our latest approach to a development environment is to focus on virtualization e
 
 
 ### MongoDB
+By offering the best of traditional databases as well as the flexibility, scale, and performance required by today’s applications, MongoDB lets innovators deploy apps as big as they can possibly dream. From startups to enterprises, for the modern and the mission-critical, MongoDB is the database for giant ideas.
 
-````bash
+```sh
     brew install mongodbsudo mkdir -p /data/db
     sudo mkdir -p /data/db
     sudo chown -R `whoami`: data
-````
+```
+
+(MongoDB Website)[https://www.mongodb.com/]
 
 
 
@@ -421,6 +466,7 @@ Download and install vagrant [here.](https://www.vagrantup.com/)
 
 ### Homestead
 Homestead is a vagrant box designed for general purpose development with laravel, but provides a solid environment for wordpress or other php development as well.
+
 
 
 

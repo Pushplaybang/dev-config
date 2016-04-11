@@ -15,7 +15,7 @@
 	[
 		"no_round"
 	],
-	"font_size": 20,
+	"font_size": 22,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
@@ -29,8 +29,8 @@
 		"draw_active"
 	],
 	"line_numbers": true,
-	"line_padding_bottom": 2,
-	"line_padding_top": 2,
+	"line_padding_bottom": 3,
+	"line_padding_top": 3,
 	"open_files_in_new_window": true,
 	"original_color_scheme": "Packages/User/Color Highlighter/themes/curiosity.base16.tmTheme",
 	"overlay_scroll_bars": "enabled",
@@ -40,5 +40,5 @@
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"word_wrap": true,
-	"wrap_width": 100
+	"wrap_width": 85
 }
