@@ -12,9 +12,9 @@ A selection of install and setup notes for my dev config on OSX, this is somewha
     - iTerm2
     - RoboMongo
     - Sequel Pro
-    - Tower 2 (commercial)
+    - Tower 2 \(commercial\)
     - Pixate
-    - Sketch (commercial)
+    - Sketch \(commercial\)
 - Command Line
     - Brew
     - Brew Cask
@@ -348,6 +348,13 @@ brew install imagemagick --with-webp
 ```
 
 
+#### CodeClimate CLI
+if you're planning to use the codeClimate static analysis, the cli can be helpful, check out [codeclimate here](https://codeclimate.com/dashboard)
+
+```sh
+brew tap codeclimate/formulae
+brew install codeclimate
+```
 
 
 
