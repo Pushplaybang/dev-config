@@ -35,13 +35,13 @@ A selection of install and setup notes for my dev config on OSX, this is somewha
     - Laravel & Lumen
     - Jekyll
 - Environment
-    - MySQL
     - MongoDB
     - Docker ToolBox
     - VirtualBox
     - Vagrant
     - Homestead
 - SSH keys
+    - SSH Config
 
 <!-- /MarkdownTOC -->
 
@@ -424,7 +424,6 @@ a super simple static site generator, that works with plain text and markup.
 ## Environment
 Our latest approach to a development environment is to focus on virtualization either via docker or vagrant.
 
-* MySQL
 * MongoDB
 * Docker Toolbox
 * virtualbox (should be installed with docker Toolbox)
@@ -432,10 +431,6 @@ Our latest approach to a development environment is to focus on virtualization e
 * Homestead
 
 
-
-### MySQL
-
-*TODO*
 
 
 
@@ -487,5 +482,19 @@ First check to see if a ssh key directory exists.
     ls -lash
 
 If nothing is listed, then you can move on - or else you'll need to backup the existing key and create a new one as needed.
-
+```sh
     ssh-keygen -t rsa -C "guy@youremail.com"
+```
+
+### SSH Config
+To create easy to identify aliases for your hosts that you access via ssh you'll want to crete a `config` in your `.ssh/` directory. then for each add the following:
+
+```sh
+Host <name-of-host>
+  HostName <ip-address>
+  Port 22
+  User root
+  IdentityFile ~/.ssh/id_rsa
+```
+
+Port, user and id file should also be set appropriately.
