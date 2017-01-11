@@ -1,27 +1,27 @@
 {
-	"auto_complete_delay": 100,
+	"auto_complete_delay": 150,
 	"bold_folder_labels": true,
 	"caret_extra_bottom": 0,
 	"caret_extra_top": 0,
 	"caret_extra_width": 7,
 	"caret_style": "phase",
-	"color_scheme": "Packages/User/SublimeLinter/Material Flatland (SL).tmTheme",
+	"color_scheme": "Packages/User/SublimeLinter/Oceanic Next (SL).tmTheme",
 	"detect_indentation": true,
 	"drag_text": false,
 	"draw_centered": true,
 	"draw_minimap_border": true,
-	"font_face": "Hack",
+	"ensure_newline_at_eof_on_save": true,
+	"font_face": "Fira Mono",
 	"font_options":
 	[
 		"no_round"
 	],
-	"font_size": 23,
+	"font_size": 21,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
 		"JavaScript",
-		"Markdown",
 		"Vintage"
 	],
 	"indent_guide_options":
@@ -29,16 +29,23 @@
 		"draw_active"
 	],
 	"line_numbers": true,
-	"line_padding_bottom": 3,
+	"line_padding_bottom": 2,
 	"line_padding_top": 3,
+	"material_theme_accent_lime": true,
+	"material_theme_tree_headings": true,
 	"open_files_in_new_window": true,
 	"original_color_scheme": "Packages/User/Color Highlighter/themes/curiosity.base16.tmTheme",
 	"overlay_scroll_bars": "enabled",
+	"rulers":
+	[
+		80,
+		90
+	],
 	"sidebar_default": true,
 	"tab_size": 2,
-	"theme": "Material Flatland.sublime-theme",
+	"theme": "Material Oceanic Next.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"word_wrap": true,
-	"wrap_width": 85
+	"wrap_width": 90
 }

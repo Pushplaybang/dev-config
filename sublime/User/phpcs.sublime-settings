@@ -1,0 +1,9 @@
+{
+  "phpcs_show_quick_panel": false,
+  "phpcs_linter_run": true,
+  "php_cs_fixer_show_quick_panel": false,
+  "phpmd_run": false,
+  "phpcs_executable_path": "/usr/local/bin/phpcs",
+  "php_cs_fixer_executable_path": "/usr/local/bin/php-cs-fixer",
+  "phpmd_executable_path": "/usr/local/bin/phpmd"
+}

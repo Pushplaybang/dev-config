@@ -5,43 +5,44 @@ A selection of install and setup notes for my dev config on OSX, this is somewha
 ## Table Of Contents
 <!-- MarkdownTOC depth=3 link=true-->
 
-- Apps
-    - Alfred
-    - xcode
-    - Sublime Text
-    - iTerm2
-    - RoboMongo
-    - Sequel Pro
-    - Tower 2 \(commercial\)
-    - Pixate
-    - Sketch \(commercial\)
-- Command Line
-    - Brew
-    - Brew Cask
-    - Git
-    - YADR
-    - Cheat
-    - Node & NPM
-    - n
-    - Grunt, Bower & Gulp CLI's
-    - Composer
-    - Git Extras
-    - Local Tunnel
-    - Sublime Text Dependancies
-    - Ruby
-    - Global Packages & Dependancies
-- Frameworks
-    - Meteor
-    - Laravel & Lumen
-    - Jekyll
-- Environment
-    - MongoDB
-    - Docker ToolBox
-    - VirtualBox
-    - Vagrant
-    - Homestead
-- SSH keys
-    - SSH Config
+1. [Apps](#apps)
+    1. [Alfred](#alfred)
+    1. [xcode](#xcode)
+    1. [Sublime Text](#sublime-text)
+    1. [iTerm2](#iterm2)
+    1. [RoboMongo](#robomongo)
+    1. [Sequel Pro](#sequel-pro)
+    1. [Tower 2 \(commercial\)](#tower-2-commercial)
+    1. [Pixate](#pixate)
+    1. [Sketch \(commercial\)](#sketch-commercial)
+1. [Command Line](#command-line)
+    1. [Brew](#brew)
+    1. [Brew Cask](#brew-cask)
+    1. [Git](#git)
+    1. [YADR](#yadr)
+    1. [Cheat](#cheat)
+    1. [Node & NPM](#node--npm)
+    1. [n](#n)
+    1. [Grunt, Bower & Gulp CLI's](#grunt-bower--gulp-clis)
+    1. [Composer](#composer)
+    1. [Git Extras](#git-extras)
+    1. [Local Tunnel](#local-tunnel)
+    1. [Sublime Text Dependancies](#sublime-text-dependancies)
+    1. [Ruby](#ruby)
+    1. [Global Packages & Dependancies](#global-packages--dependancies)
+        1. [ImageMagick and GraphicsMagick](#imagemagick-and-graphicsmagick)
+        1. [CodeClimate CLI](#codeclimate-cli)
+1. [Frameworks](#frameworks)
+    1. [Meteor](#meteor)
+        1. [Developing Unpublished Meteor Packages](#developing-unpublished-meteor-packages)
+    1. [Laravel & Lumen](#laravel--lumen)
+    1. [Jekyll](#jekyll)
+1. [Environment](#environment)
+    1. [MongoDB](#mongodb)
+    1. [Docker](#docker)
+1. [SSH keys](#ssh-keys)
+    1. [SSH Config](#ssh-config)
+    1. [PHP in sublime text](#php-in-sublime-text)
 
 <!-- /MarkdownTOC -->
 
@@ -52,7 +53,7 @@ These are the general purpose apps I use daily. Your mileage may vary.
 * Alfred
 * xcode + cmd line tools
 * sublime text
-* iterm2 
+* iterm2
     * with yaddir, zsh, and solarized theme (installed below under the command line section)
 * Robomongo
 * Sequel Pro
@@ -76,14 +77,14 @@ check out [xCode here](https://developer.apple.com/xcode/)
 Sublime Text is a sophisticated text editor that can be installed here [sublime text 3 here](http://www.sublimetext.com/3)
 
 ##### opening files and folders from the cmd line with sublime
-Sublime includes a cli tool called **subl**. in order to use it we need to create a symlink in our usr/bin directory from the sublime application folder so that we can call this command anywhere while in terminal.  to do this : 
- 
+Sublime includes a cli tool called **subl**. in order to use it we need to create a symlink in our usr/bin directory from the sublime application folder so that we can call this command anywhere while in terminal.  to do this :
+
 ```sh
     sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
 ```
 
 ##### Pre-Configured Setup
-To use  the setup in this repo for sublime text, do the following : 
+To use  the setup in this repo for sublime text, do the following :
 
 ```sh
     // TODO : add ln cmd  to dev config repo
@@ -100,7 +101,7 @@ There are some small dependancies that are required for some sublime packages to
 
 
 ### iTerm2
-iTerm2 is a replacement for Terminal and the successor to iTerm. It works on Macs with OS 10.5 (Leopard) or newer. iTerm2 brings the terminal into the modern age with features you never knew you always wanted.  It can be downloaded here [iterm website](https://www.iterm2.com/index.html) 
+iTerm2 is a replacement for Terminal and the successor to iTerm. It works on Macs with OS 10.5 (Leopard) or newer. iTerm2 brings the terminal into the modern age with features you never knew you always wanted.  It can be downloaded here [iterm website](https://www.iterm2.com/index.html)
 
 
 
@@ -143,8 +144,8 @@ After installing iterm above, a number of these tools are neccessary for a) a be
 * git-extras
 * wp-cli
 
-### Brew 
-Brew is the dependancy manager for OSX and should be used to install most development tools. isntall it by running the following: 
+### Brew
+Brew is the dependancy manager for OSX and should be used to install most development tools. isntall it by running the following:
 
 ```sh
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -158,7 +159,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 Homebrew Cask extends Homebrew and brings its elegance, simplicity, and speed to OS X applications and large binaries alike.
 
 ```sh
-brew install caskroom/cask/brew-cask    
+brew install caskroom/cask/brew-cask
 ```
 
 ```sh
@@ -180,14 +181,14 @@ You will also want to setup your Git and GitHub user details
     //- Setting user name and email globally in git
     git config --global user.name "Your Name Here"
     git config --global user.email "you@youremail.com"
-    
+
     //-  GitHub token config
     git config --global github.user YOURUSERNAME
     git config --global github.token 0123456789abcdef0123456789abcdef
 ```
 
 ### YADR
- follow the instructions here to install the the toys for terminal : 
+ follow the instructions here to install the the toys for terminal :
 
 ```sh
     sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`"
@@ -209,19 +210,19 @@ cheat allows you to create and view interactive cheatsheets on the command-line.
 
 
 ### Node & NPM
-To install node and npm via brew run : 
+To install node and npm via brew run :
 
 ```sh
 brew install node
 ```
 
-to check that node is install run : 
+to check that node is install run :
 
 ```sh
 node -v
 ```
 
-and check that NPM is installed 
+and check that NPM is installed
 
 ```sh
 npm -v
@@ -245,19 +246,19 @@ n stable
 ### Grunt, Bower & Gulp CLI's
 Grunt and Gulp are javascript task runners, bower is a tiny front end dependancy managment tool based on git.
 
-to install the grunt cli 
+to install the grunt cli
 
 ```sh
 npm install -g grunt-cli
 ```
 
-for gulp : 
+for gulp :
 
 ```sh
 npm install --global gulp
 ```
 
-for bower : 
+for bower :
 
 ```sh
 npm install -g bower
@@ -320,7 +321,7 @@ The linter packages in particular will require these dependancies in order to wo
   npm install -g eslint-plugin-react
 ```
 
-You'll then want to setup an `.eslintrc` file, and if you'd like to use the one defined here, you'll need to install the airbnb eslint config locally as it extends it.. 
+You'll then want to setup an `.eslintrc` file, and if you'd like to use the one defined here, you'll need to install the airbnb eslint config locally as it extends it..
 
 ```sh
 npm install - g eslint-config-airbnb
@@ -447,28 +448,8 @@ By offering the best of traditional databases as well as the flexibility, scale,
 
 
 
-### Docker ToolBox
+### Docker
 Docker Toolbox installs all of the docker tools, including machine(to run docker locally), compose, kitematic (a GUI),  and VirtualBox to make working wtih docker locally much easier.
-
-
-
-### VirtualBox
-VirtualBox is a general-purpose full virtualizer for x86 hardware, targeted at server, desktop and embedded use.
-
-Download separately [here.](https://www.virtualbox.org/wiki/Downloads)
-
-
-
-### Vagrant
-Create and configure lightweight, reproducible, and portable development environments.
-
-Download and install vagrant [here.](https://www.vagrantup.com/)
-
-
-
-### Homestead
-Homestead is a vagrant box designed for general purpose development with laravel, but provides a solid environment for wordpress or other php development as well.
-
 
 
 
@@ -498,3 +479,17 @@ Host <name-of-host>
 ```
 
 Port, user and id file should also be set appropriately.
+
+
+
+
+
+
+
+
+
+
+
+
+### PHP in sublime text
+https://philsturgeon.uk/php/2013/08/20/php-static-analysis-in-sublime-text/
