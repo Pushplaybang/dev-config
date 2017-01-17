@@ -1,6 +1,6 @@
 # My Banging OSX Dev Config
 
-A selection of install and setup notes for my dev config on OSX, this is somewhat incomplete at the moment but will eventually contain all of the bits and pieces to get going quickly.  Other than instructions this also includes my sublime text setup, and will in time be the home of any other config files such as linters etc json file etc.
+A selection of install and setup notes for my dev config on OSX, this is somewhat incomplete at the moment but will eventually contain all of the bits and pieces to get going quickly.  Other than instructions this also includes my sublime text setup, and will in time be the home of any other config files.
 
 ## Table Of Contents
 <!-- MarkdownTOC depth=3 link=true-->
@@ -87,8 +87,9 @@ Sublime includes a cli tool called **subl**. in order to use it we need to creat
 To use  the setup in this repo for sublime text, do the following :
 
 ```sh
-    // TODO : add ln cmd  to dev config repo
+ln -s ~/repositories/dev-config/sublime/User /Users/paul/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
 ```
+
 
 **NB** : This setup includes JSCS which is set to auto format your JS files on save, you'll need to navigate to `preferences->Package Settings->JSCS Formatter->User - Settings` and change the path to the jscs.json file as per the location of this repository.
 
